@@ -4,19 +4,16 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-<<<<<<< HEAD
+
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-=======
-<<<<<<< HEAD
+
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-=======
+
 import androidx.compose.foundation.shape.RoundedCornerShape
->>>>>>> d6b3605a4203ed262d8d31b55e0897781a23070d
->>>>>>> 21ab1dfe307207945075ffd2672b40c31f3ef73f
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -88,14 +85,11 @@ fun HomeContent(
         modifier = Modifier
             .fillMaxSize()
             .padding(padding)
-<<<<<<< HEAD
+
             .verticalScroll(rememberScrollState())
-=======
-<<<<<<< HEAD
+
             .verticalScroll(rememberScrollState())
-=======
->>>>>>> d6b3605a4203ed262d8d31b55e0897781a23070d
->>>>>>> 21ab1dfe307207945075ffd2672b40c31f3ef73f
+
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp)
