@@ -3,7 +3,13 @@ package com.example.devicehealth.ui
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.*
+<<<<<<< HEAD
 import androidx.lifecycle.viewmodel.compose.viewModel
+=======
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.devicehealth.ServiceLocator
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
 import com.example.devicehealth.data.local.User
 import com.example.devicehealth.ui.auth.AuthScreen
 import com.example.devicehealth.ui.auth.AuthViewModel
@@ -14,12 +20,17 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun AppRoot() {
+<<<<<<< HEAD
+=======
+    val context = LocalContext.current
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
     val viewModel: AuthViewModel = viewModel()
 
     val auth = FirebaseAuth.getInstance()
     var loggedInUser by remember { mutableStateOf<User?>(null) }
     var showSplash by remember { mutableStateOf(true) }
 
+<<<<<<< HEAD
     // This state track if we've checked for a logged in user
     var isAuthChecked by remember { mutableStateOf(false) }
 
@@ -27,11 +38,18 @@ fun AppRoot() {
         // Minimum splash duration
         delay(1500) 
         
+=======
+    LaunchedEffect(Unit) {
+        delay(300)
+        showSplash = false
+
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
         val firebaseUser = auth.currentUser
         if (firebaseUser != null) {
             val localUser = viewModel.getLocalUser(firebaseUser.uid)
             loggedInUser = localUser
         }
+<<<<<<< HEAD
         
         isAuthChecked = true
         showSplash = false
@@ -40,6 +58,19 @@ fun AppRoot() {
     if (showSplash) {
         SplashScreen()
     } else if (isAuthChecked) {
+=======
+    }
+
+    AnimatedVisibility(
+        visible = showSplash,
+        exit = fadeOut()
+    ) {
+        SplashScreen()
+    }
+
+
+    if (!showSplash) {
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
         if (loggedInUser == null) {
             AuthScreen(onAuthSuccess = { loggedInUser = it })
         } else {
@@ -52,4 +83,8 @@ fun AppRoot() {
             )
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51

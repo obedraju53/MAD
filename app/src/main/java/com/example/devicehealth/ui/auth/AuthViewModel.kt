@@ -9,6 +9,11 @@ import com.example.devicehealth.data.local.UserDatabase
 import com.example.devicehealth.data.repository.UserRepository
 import kotlinx.coroutines.launch
 import com.google.firebase.auth.FirebaseAuth
+<<<<<<< HEAD
+=======
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
 
 class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -21,16 +26,25 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     var authMessage = mutableStateOf<String?>(null)
 
+<<<<<<< HEAD
     fun register(email: String, password: String, onSuccess: (User) -> Unit) {
+=======
+    fun register(email: String, password: String) {
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val uid = auth.currentUser!!.uid
                     viewModelScope.launch {
+<<<<<<< HEAD
                         val user = User(firebaseUid = uid, email = email)
                         repository.saveFirebaseUser(uid, email)
                         authMessage.value = "Account created successfully!"
                         onSuccess(user)
+=======
+                        repository.saveFirebaseUser(uid, email)
+                        authMessage.value = "Account created successfully!"
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
                     }
                 } else {
                     authMessage.value = task.exception?.message ?: "Registration failed."

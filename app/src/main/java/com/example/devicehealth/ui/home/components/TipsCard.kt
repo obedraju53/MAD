@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.runtime.livedata.observeAsState
+<<<<<<< HEAD
 import androidx.compose.ui.tooling.preview.Preview
 
 import com.example.devicehealth.ServiceLocator
@@ -15,6 +16,12 @@ import com.example.devicehealth.data.local.Tip
 import com.example.devicehealth.ui.home.TipsViewModel
 import com.example.devicehealth.ui.home.TipsViewModelFactory
 import com.example.devicehealth.ui.theme.DeviceHealthTheme
+=======
+
+import com.example.devicehealth.ServiceLocator
+import com.example.devicehealth.ui.home.TipsViewModel
+import com.example.devicehealth.ui.home.TipsViewModelFactory
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
 
 
 @Composable
@@ -26,6 +33,7 @@ fun TipsCard() {
 
     val tips by vm.tipsLive.observeAsState(emptyList())
 
+<<<<<<< HEAD
     TipsCardContent(
         tips = tips,
         onRefresh = { vm.forceRefresh() }
@@ -37,6 +45,8 @@ fun TipsCardContent(
     tips: List<Tip>,
     onRefresh: () -> Unit
 ) {
+=======
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(16.dp),
@@ -46,7 +56,11 @@ fun TipsCardContent(
         Column(modifier = Modifier.padding(12.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
                 Text("Optimization Tips", style = MaterialTheme.typography.titleMedium)
+<<<<<<< HEAD
                 TextButton(onClick = onRefresh) {
+=======
+                TextButton(onClick = { vm.forceRefresh() }) {
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
                     Text("Refresh")
                 }
             }
@@ -62,6 +76,7 @@ fun TipsCardContent(
         }
     }
 }
+<<<<<<< HEAD
 
 @Preview(showBackground = true)
 @Composable
@@ -73,3 +88,5 @@ fun TipsCardPreview() {
         )
     }
 }
+=======
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51

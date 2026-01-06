@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+<<<<<<< HEAD
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.devicehealth.ui.theme.DeviceHealthTheme
@@ -42,12 +43,34 @@ fun SystemVitalsCard() {
         val level: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
         val scale: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_SCALE, -1) ?: -1
         val batteryLevel = if (level != -1 && scale != -1) {
+=======
+import androidx.compose.ui.unit.dp
+import java.io.File
+import kotlin.math.roundToInt
+
+@Composable
+fun SystemVitalsCard() {
+    val context = LocalContext.current
+    var batteryLevel by remember { mutableStateOf(0) }
+    var storageUsedPercent by remember { mutableStateOf(0f) }
+    var storageText by remember { mutableStateOf("") }
+
+    LaunchedEffect(Unit) {
+        // Battery
+        val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { ifilter ->
+            context.registerReceiver(null, ifilter)
+        }
+        val level: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
+        val scale: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_SCALE, -1) ?: -1
+        batteryLevel = if (level != -1 && scale != -1) {
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
             (level * 100 / scale.toFloat()).roundToInt()
         } else {
             0
         }
 
         // Storage
+<<<<<<< HEAD
         val (storageUsedPercent, storageText) = try {
             val path = Environment.getDataDirectory()
             val stat = StatFs(path.path)
@@ -88,6 +111,29 @@ fun SystemVitalsContent(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
+=======
+        val path = Environment.getDataDirectory()
+        val stat = StatFs(path.path)
+        val blockSize = stat.blockSizeLong
+        val totalBlocks = stat.blockCountLong
+        val availableBlocks = stat.availableBlocksLong
+
+        val totalSize = totalBlocks * blockSize
+        val availableSize = availableBlocks * blockSize
+        val usedSize = totalSize - availableSize
+
+        storageUsedPercent = if (totalSize > 0) usedSize.toFloat() / totalSize else 0f
+        
+        val freeGb = availableSize / (1024 * 1024 * 1024)
+        val totalGb = totalSize / (1024 * 1024 * 1024)
+        storageText = "$freeGb GB Free / $totalGb GB Total"
+    }
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp), // Match TipsCard padding
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
@@ -123,6 +169,7 @@ fun SystemVitalsContent(
         }
     }
 }
+<<<<<<< HEAD
 
 @Preview(showBackground = true)
 @Composable
@@ -135,3 +182,5 @@ fun SystemVitalsPreview() {
         )
     }
 }
+=======
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51

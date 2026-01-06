@@ -8,20 +8,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+<<<<<<< HEAD
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.devicehealth.ui.home.BatteryInfoViewModel
 import com.example.devicehealth.ui.home.BatteryUiState
 import com.example.devicehealth.ui.theme.DeviceHealthTheme
+=======
+import androidx.compose.ui.unit.dp
+import com.example.devicehealth.ui.home.BatteryInfoViewModel
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
 
 @Composable
 fun BatteryInsightsCard(viewModel: BatteryInfoViewModel) {
     val state by viewModel.uiState.collectAsState()
+<<<<<<< HEAD
     BatteryInsightsContent(state = state)
 }
 
 @Composable
 fun BatteryInsightsContent(state: BatteryUiState) {
+=======
+
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -75,6 +84,7 @@ fun BatteryInsightsContent(state: BatteryUiState) {
         }
     }
 }
+<<<<<<< HEAD
 
 @Preview(showBackground = true)
 @Composable
@@ -92,3 +102,5 @@ fun BatteryInsightsPreview() {
         )
     }
 }
+=======
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51

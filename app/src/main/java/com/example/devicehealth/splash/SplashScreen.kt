@@ -10,10 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+<<<<<<< HEAD
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.devicehealth.R
 import com.example.devicehealth.ui.theme.DeviceHealthTheme
+=======
+import androidx.compose.ui.unit.dp
+import com.example.devicehealth.R
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
 
 @Composable
 fun SplashScreen() {
@@ -32,6 +37,7 @@ fun SplashScreen() {
         )
     }
 }
+<<<<<<< HEAD
 
 @Preview(showBackground = true)
 @Composable
@@ -40,3 +46,5 @@ fun SplashScreenPreview() {
         SplashScreen()
     }
 }
+=======
+>>>>>>> 04e30d32b4066876e58de37f6881e79e69005b51
