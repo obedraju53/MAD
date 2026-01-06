@@ -4,9 +4,13 @@ import android.util.Patterns
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+<<<<<<< HEAD
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+=======
+import androidx.compose.foundation.shape.RoundedCornerShape
+>>>>>>> d6b3605a4203ed262d8d31b55e0897781a23070d
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -81,8 +85,12 @@ fun AuthContent(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+<<<<<<< HEAD
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp, vertical = 32.dp),
+=======
+                .padding(horizontal = 16.dp),
+>>>>>>> d6b3605a4203ed262d8d31b55e0897781a23070d
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
